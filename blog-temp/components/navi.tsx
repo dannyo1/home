@@ -1,17 +1,28 @@
-let navbar = () => {
+'use client';
+import { useState } from 'react';
 
-<main>
-<div className="dropdown">
-<button className="dropbtn">Dropdown 
-      <i className="fa fa-caret-down"></i>
-    </button>
-    <div className="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+const Navbar = () => {
+  const [showList, setListState] = useState(false);
+  return (
+    <div className="text-white">
+      <button className="text-white" onClick={() => setListState(!showList)}>
+        Click Me!
+      </button>
+      {showList ? <NavList /> : null}
     </div>
-</div>
+  );
+};
 
+const NavList = () => {
+  return (
+    <>
+      <ul>
+        <li>Thing1</li>
+        <li>Thing2</li>
+        <li>ETC</li>
+      </ul>
+    </>
+  );
+};
 
-</main>
-}
+export { Navbar };
